@@ -30,13 +30,17 @@ public class Actividad_1b {
     public static void main(String[] args) {
         Float sueldoMax, bonoB, antiguedad, sueldo, bonoA,bonoMayor, bonoM;
         do {
-            antiguedad = Float.parseFloat(JOptionPane.showInputDialog(null,"Bienvenido al sistema de conversion" + "\n Ingresa tu antiguedad en años: " + "| 0 | - Para salir",2));
+            antiguedad = Float.parseFloat(JOptionPane.showInputDialog(null,"Bienvenido al sistema de conversion" + "\n Ingresa tu antiguedad en años: " + "| S | - Para salir",2));
             sueldo = sueldo(antiguedad);
             sueldoMax = Float.parseFloat(JOptionPane.showInputDialog(null, "Ingresa tu sueldo maximo",2));
             bonoA = bonoAnt(antiguedad, sueldoMax);
             bonoB = bonoSueldo(sueldoMax);
             System.out.println(bonoA);
             System.out.println(bonoB);
+            if (sueldoMax > sueldo) {
+                bonoM = sueldoMax + bonoB;
+                JOptionPane.showMessageDialog(null, "El bono que te corresponde es:" + "\n | Bono mas sueldo: |" + "\n" + "|"+ bonoM +"|");
+            }
             if (sueldo == sueldoMax) {
                 bonoMayor = bonoMayor(bonoA, bonoB);
                 JOptionPane.showMessageDialog(null, "El bono que te corresponde es:" + "\n | Bono mas sueldo: |" + "\n" + "|"+ bonoMayor + sueldoMax +"|");
@@ -45,16 +49,18 @@ public class Actividad_1b {
                 bonoM = sueldoMax + bonoA;
                 JOptionPane.showMessageDialog(null, "El bono que te corresponde es:" + "\n | Bono mas sueldo: |" + "\n" + "|"+ bonoM +"|");
             } 
-            if (bonoB > bonoA) {
+            if (bonoB > bonoA){
                 bonoM = sueldoMax + bonoB;
                 JOptionPane.showMessageDialog(null, "El bono que te corresponde es:" + "\n | Bono mas sueldo: |" + "\n" + "|"+ bonoM +"|");
-            } 
-
-
-
+            }
         } while (antiguedad != 0 || sueldoMax != 0);
 
     }
+    
+
+
+
+
     // Calculo Bono x Sueldo
     static public Float bonoSueldo (Float x){
         Float sueldo = x, bonoB = 0f;
